@@ -17,12 +17,12 @@
         @touchend="getLeavePosition($event)">
     </div>
     <div class="photo-ul">
-      <img src="../assets/imgs/temp1.png" @click="changeIndex(0)"
+      <img src="../../assets/imgs/temp1.png" @click="changeIndex(0)"
         :class="{'select-img':curIndex==0}">
-      <img src="../assets/imgs/temp2.png" @click="changeIndex(1)"
+      <img src="../../assets/imgs/temp2.png" @click="changeIndex(1)"
         :class="{'select-img':curIndex==1}">
-      <img src="../assets/imgs/temp3.png" @click="changeIndex(2)"
-        :class="{'select-img':curIndex==2}">
+      <!-- <img src="../../assets/imgs/temp3.png" @click="changeIndex(2)"
+        :class="{'select-img':curIndex==2}"> -->
     </div>
     <div class="composite-btn" @click="createPhoto">合成图片</div>
   </div>
@@ -36,9 +36,9 @@ export default {
     return {
       curIndex: 0,
       imgArr: [
-        require('../assets/imgs/temp1.png'),
-        require('../assets/imgs/temp2.png'),
-        require('../assets/imgs/temp3.png')
+        require('../../assets/imgs/temp1.png'),
+        require('../../assets/imgs/temp2.png'),
+        require('../../assets/imgs/temp3.png')
       ],
       imageUrl: '',
       imgSrc: '',
@@ -198,13 +198,12 @@ export default {
           scale: scale,
           useCORS: true
         }).then(function (canvas) {
-          // var dataUrl = canvas.toDataURL('image/jpg')
-          this.imageUrl = canvas.toDataURL('image/jpg')
-          // console.log(dataUrl)
-          // localStorage.imgData = dataUrl
-          this.imgUrl(this.imageUrl)
+          console.log(that.imageUrl)
+          console.log(canvas.toDataURL('image/jpg'))
+          that.imageUrl = canvas.toDataURL('image/jpg')
+          that.imgUrl(that.imageUrl)
           that.$router.push({
-            name: 'share',
+            name: 'Share',
             params: {
               storage: 'imgData'
             }
@@ -218,13 +217,13 @@ export default {
 }
 </script>
     <style lang="less">
-@import '../assets/css/reset.css';
+@import '../../assets/css/reset.css';
 #app {
   .index-container {
     padding-top: 0.6rem;
     box-sizing: border-box;
     min-height: 100vh;
-    background: url(../assets/imgs/bg.png) no-repeat;
+    background: url(../../assets/imgs/bg.png) no-repeat;
     .upload-btn {
       display: block;
       font-size: 0.36rem;
@@ -244,7 +243,7 @@ export default {
         content: '';
         width: 0.44rem;
         height: 0.36rem;
-        background: url(../assets/imgs/camera.png) no-repeat;
+        background: url(../../assets/imgs/camera.png) no-repeat;
         background-size: 100%;
         margin-right: 0.1rem;
         vertical-align: middle;

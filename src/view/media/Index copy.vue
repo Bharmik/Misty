@@ -17,27 +17,27 @@
         @touchend="getLeavePosition($event)">
     </div>
     <div class="photo-ul">
-      <img src="../assets/imgs/temp1.png" @click="changeIndex(0)"
+      <img src="../../assets/imgs/temp1.png" @click="changeIndex(0)"
         :class="{'select-img':curIndex==0}">
-      <img src="../assets/imgs/temp2.png" @click="changeIndex(1)"
+      <img src="../../assets/imgs/temp2.png" @click="changeIndex(1)"
         :class="{'select-img':curIndex==1}">
-      <img src="../assets/imgs/temp3.png" @click="changeIndex(2)"
+      <img src="../../assets/imgs/temp3.png" @click="changeIndex(2)"
         :class="{'select-img':curIndex==2}">
     </div>
     <div class="composite-btn" @click="createPhoto">合成图片</div>
   </div>
 </template>
-    <script>
+<script>
 import html2canvas from 'html2canvas'
 import Exif from 'exif-js'
 export default {
-  data() {
+  data () {
     return {
       curIndex: 0,
       imgArr: [
-        require('../assets/imgs/temp1.png'),
-        require('../assets/imgs/temp2.png'),
-        require('../assets/imgs/temp3.png')
+        require('../../assets/imgs/temp1.png'),
+        require('../../assets/imgs/temp2.png'),
+        require('../../assets/imgs/temp3.png')
       ],
       imgUrl: '',
       initTouchX: 0,
@@ -58,85 +58,84 @@ export default {
       }
     }
   },
-  mounted() {
+  mounted () {
     this.previewImg = document.querySelector('#preview-img')
-    document.addEventListener('touchstart', function(event) {
+    document.addEventListener('touchstart', function (event) {
       if (event.touches.length > 1) {
-        event.preventDefault();
+        event.preventDefault()
       }
     })
-    var lastTouchEnd = 0;
-    document.addEventListener('touchend', function(event) {
-      var now = (new Date()).getTime();
+    var lastTouchEnd = 0
+    document.addEventListener('touchend', function (event) {
+      var now = (new Date()).getTime()
       if (now - lastTouchEnd <= 300) {
-        event.preventDefault();
+        event.preventDefault()
       }
-      lastTouchEnd = now;
+      lastTouchEnd = now
     }, false)
   },
   methods: {
-    getPhoto() {
+    getPhoto () {
       var imageInput = document.querySelector('#image-input')
       var that = this
-      imageInput.addEventListener('change', function(e) {
+      imageInput.addEventListener('change', function (e) {
         let reads = new FileReader()
         reads.readAsDataURL(this.files[0])
-        reads.addEventListener('load', function(e) {
+        reads.addEventListener('load', function (e) {
           that.imgUrl = this.result
           that.myImg.position.x = 0
           that.myImg.position.y = 0
           that.myImg.scale = 1
           var orientation
-          that.previewImg.addEventListener('load', function() {
-            Exif.getData(that.previewImg, function() { // 获取图像的数据
-              Exif.getAllTags(this); // 获取图像的全部数据，值以对象的方式返回
-              orientation = Exif.getTag(this, "Orientation"); // 获取图像的拍摄方向
-              var rotateCanvas = document.createElement("canvas"),
-                rotateCtx = rotateCanvas.getContext("2d");
+          that.previewImg.addEventListener('load', function () {
+            Exif.getData(that.previewImg, function () { // 获取图像的数据
+              Exif.getAllTags(this) // 获取图像的全部数据，值以对象的方式返回
+              orientation = Exif.getTag(this, 'Orientation') // 获取图像的拍摄方向
+              var rotateCanvas = document.createElement('canvas'),
+                rotateCtx = rotateCanvas.getContext('2d')
               // 针对图像方向进行处理
               switch (orientation) {
                 case 1:
-                  rotateCanvas.width = that.previewImg.width;
-                  rotateCanvas.height = that.previewImg.height;
-                  rotateCtx.drawImage(that.previewImg, 0, 0, that.previewImg.width, that.previewImg.height);
-                  break;
+                  rotateCanvas.width = that.previewImg.width
+                  rotateCanvas.height = that.previewImg.height
+                  rotateCtx.drawImage(that.previewImg, 0, 0, that.previewImg.width, that.previewImg.height)
+                  break
                 case 6: // 顺时针 90 度
-                  rotateCanvas.width = that.previewImg.height;
-                  rotateCanvas.height = that.previewImg.width;
-                  rotateCtx.translate(0, 0);
-                  rotateCtx.rotate(90 * Math.PI / 180);
-                  rotateCtx.drawImage(that.previewImg, 0, -that.previewImg.height, that.previewImg.width, that.previewImg.height);
-                  break;
+                  rotateCanvas.width = that.previewImg.height
+                  rotateCanvas.height = that.previewImg.width
+                  rotateCtx.translate(0, 0)
+                  rotateCtx.rotate(90 * Math.PI / 180)
+                  rotateCtx.drawImage(that.previewImg, 0, -that.previewImg.height, that.previewImg.width, that.previewImg.height)
+                  break
                 case 8:
-                  rotateCanvas.width = that.previewImg.height;
-                  rotateCanvas.height = that.previewImg.width;
-                  rotateCtx.translate(0, 0);
-                  rotateCtx.rotate(-90 * Math.PI / 180);
-                  rotateCtx.drawImage(that.previewImg, -that.previewImg.width, 0, that.previewImg.width, that.previewImg.height);
-                  break;
+                  rotateCanvas.width = that.previewImg.height
+                  rotateCanvas.height = that.previewImg.width
+                  rotateCtx.translate(0, 0)
+                  rotateCtx.rotate(-90 * Math.PI / 180)
+                  rotateCtx.drawImage(that.previewImg, -that.previewImg.width, 0, that.previewImg.width, that.previewImg.height)
+                  break
                 case 3: // 180 度
-                  rotateCanvas.width = that.previewImg.width;
-                  rotateCanvas.height = that.previewImg.height;
-                  rotateCtx.translate(0, 0);
-                  rotateCtx.rotate(Math.PI);
-                  rotateCtx.drawImage(that.previewImg, -that.previewImg.width, -that.previewImg.height, that.previewImg.width, that.previewImg.height);
-                  break;
+                  rotateCanvas.width = that.previewImg.width
+                  rotateCanvas.height = that.previewImg.height
+                  rotateCtx.translate(0, 0)
+                  rotateCtx.rotate(Math.PI)
+                  rotateCtx.drawImage(that.previewImg, -that.previewImg.width, -that.previewImg.height, that.previewImg.width, that.previewImg.height)
+                  break
                 default:
-                  rotateCanvas.width = that.previewImg.width;
-                  rotateCanvas.height = that.previewImg.height;
-                  rotateCtx.drawImage(that.previewImg, 0, 0, that.previewImg.width, that.previewImg.height);
+                  rotateCanvas.width = that.previewImg.width
+                  rotateCanvas.height = that.previewImg.height
+                  rotateCtx.drawImage(that.previewImg, 0, 0, that.previewImg.width, that.previewImg.height)
               }
-              var rotateBase64 = rotateCanvas.toDataURL("image/jpeg", 0.5);
-
-            });
+              var rotateBase64 = rotateCanvas.toDataURL('image/jpeg', 0.5)
+            })
           })
         })
       })
     },
-    changeIndex(index) {
+    changeIndex (index) {
       this.curIndex = index
     },
-    getInitPosition(e) {
+    getInitPosition (e) {
       event.preventDefault()
       if (this.imgUrl) {
         var length = e.touches.length
@@ -152,7 +151,7 @@ export default {
         }
       }
     },
-    getMovePosition(e) {
+    getMovePosition (e) {
       event.preventDefault()
       if (this.imgUrl) {
         var length = e.touches.length
@@ -173,7 +172,7 @@ export default {
         }
       }
     },
-    getLeavePosition(e) {
+    getLeavePosition (e) {
       this.myImg.lastScale = this.myImg.scale
       if (e.touches.length > 0) {
         var touches = e.touches[0]
@@ -183,7 +182,7 @@ export default {
       this.lastTouchX = this.myImg.position.x
       this.lastTouchY = this.myImg.position.y
     },
-    createPhoto() {
+    createPhoto () {
       if (this.imgUrl) {
         let photoBox = document.querySelector('.photo-box')
         let newImgWidth = photoBox.style.offsetWidth
@@ -195,7 +194,7 @@ export default {
           height: newImgHeight,
           scale: scale,
           useCORS: true
-        }).then(function(canvas) {
+        }).then(function (canvas) {
           var dataUrl = canvas.toDataURL('image/jpg')
           localStorage.imgData = dataUrl
           that.$router.push({
@@ -211,15 +210,15 @@ export default {
     }
   }
 }
-    </script>
+</script>
     <style lang="less">
-@import '../assets/css/reset.css';
+@import '../../assets/css/reset.css';
 #app {
   .index-container {
     padding-top: 0.6rem;
     box-sizing: border-box;
     min-height: 100vh;
-    background: url(../assets/imgs/bg.png) no-repeat;
+    background: url(../../assets/imgs/bg.png) no-repeat;
     .upload-btn {
       display: block;
       font-size: 0.36rem;
@@ -239,7 +238,7 @@ export default {
         content: '';
         width: 0.44rem;
         height: 0.36rem;
-        background: url(../assets/imgs/camera.png) no-repeat;
+        background: url(../../assets/imgs/camera.png) no-repeat;
         background-size: 100%;
         margin-right: 0.1rem;
         vertical-align: middle;

@@ -1,21 +1,21 @@
 <template>
   <div>
     <div class="page">
-      <img src="../assets/imgs/activityGroup/ruleBtn.png" alt=""
+      <img src="../../assets/imgs/activityGroup/ruleBtn.png" alt=""
         @click="gzclick(true)" class="ruleBtn">
       <div class="time" :class="{'ip7Time':ip7Page,'x21Time':x21Page,}">
         活动时间 9.20-11.10
       </div>
       <div class="body">
         <div class="right" :class="{'ip7Right':ip7Page,'x21Right':x21Page}">
-          <img src="../assets/imgs/activityGroup/focusingLeft1.png" alt="">
+          <img src="../../assets/imgs/activityGroup/focusingLeft1.png" alt="">
         </div>
         <div class="center"
           :class="{'xrPage':xrPage,'ip7Center':ip7Page,'x21Center':x21Page,}">
-          <img src="../assets/imgs/activityGroup/focusingCenter.png" alt="">
+          <img src="../../assets/imgs/activityGroup/focusingCenter.png" alt="">
         </div>
         <div class="left" :class="{'ip7Left':ip7Page,'x21Left':x21Page,}">
-          <img src="../assets/imgs/activityGroup/focusingRight1.png" alt="">
+          <img src="../../assets/imgs/activityGroup/focusingRight1.png" alt="">
         </div>
       </div>
       <div class="bottom" :class="{'ip7Bottom':ip7Page,'x21Bottom':x21Page,}">
@@ -198,7 +198,7 @@ export default {
 .page {
   width: 100%;
   height: 100vh;
-  background-image: url('../assets/imgs/activityGroup/focusingBg.png');
+  background-image: url('../../assets/imgs/activityGroup/focusingBg.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   overflow: hidden;

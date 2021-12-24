@@ -7,6 +7,9 @@ import router from './router'
 import * as echarts from 'echarts'
 // 引入progress
 import VueProgress from 'vue-progress-path'
+// 引入vuex-store
+import store from './store/index'
+
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 Vue.use(VueProgress, {
@@ -18,6 +21,7 @@ Vue.use(VueProgress, {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

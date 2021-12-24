@@ -1,24 +1,24 @@
 <template>
   <div class="boxWap">
-    <img src="../assets/imgs/bg.jpg" alt="">
+    <img src="../../assets/imgs/bg.jpg" alt="">
     <div class="describeContent">
      <div class="describe">
         <div class="mydescribe">对方是否都是负担</div>
         <div class="topic">#hangkngkong#</div>
      </div><div class="useInfor">
         <div class="entInfor">
-           <img class="headPicture" src="../assets/imgs/bg.jpg">
+           <img class="headPicture" src="../../assets/imgs/bg.jpg">
           <div class="entName">{{dataList.empName?dataList.empName.substring(0,3):''}}</div>
           <div class="workNum">编号：2312423343243</div>
         </div>
       <div class="voteInfor">
         <div class="zan" v-if="dataList.voteEnable" @click.stop="voteFn(dataList)">
-          <!-- <img v-if="dataList.isVote" src="../../assets/img/activityGroup/posterList/zan_active.png" alt=""> -->
-          <!-- <img v-if="!dataList.isVote" src="../../assets/img/activityGroup/posterList/zan.png" alt=""> -->
+          <!-- <img v-if="dataList.isVote" src="../../../assets/img/activityGroup/posterList/zan_active.png" alt=""> -->
+          <!-- <img v-if="!dataList.isVote" src="../../../assets/img/activityGroup/posterList/zan.png" alt=""> -->
           <span>{{dataList.voteNum |formatCount}}</span>
        </div>
        <div class="comment" v-if="dataList.enabledComment" @click="goDetail(dataList)">
-        <!-- <img src="../../assets/img/activityGroup/comment.png" alt=""> -->
+        <!-- <img src="../../../assets/img/activityGroup/comment.png" alt=""> -->
         <span>{{dataList.commentCount|formatCount}}</span>
     </div>
       </div>
