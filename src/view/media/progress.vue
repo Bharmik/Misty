@@ -18,75 +18,82 @@
     </div>
     <div class="progress1">
       <!-- 自定义svg路径 -->
-        <loading-progress :progress="rightProgress" :indeterminate="indeterminate"
-          :counter-clockwise="counterClockwise"
-          :hide-background="hideBackground"
-          shape="M168.091,254.066c0,0,89.34,21.207,94.754-35.195
-			c0,0-52.792-1.354-51.889-49.633c0,0,14.89-55.048,51.889-72.645c0,0,74.901-75.352-47.377-85.279" size="350"
-          fill-duration="4" />
+      <loading-progress :progress="rightProgress" :indeterminate="indeterminate"
+        :counter-clockwise="counterClockwise" :hide-background="hideBackground"
+        shape="M168.091,254.066c0,0,89.34,21.207,94.754-35.195
+			c0,0-52.792-1.354-51.889-49.633c0,0,14.89-55.048,51.889-72.645c0,0,74.901-75.352-47.377-85.279"
+        size="350" fill-duration="4" />
     </div>
     <div class="grogress2 ss0">
       <!-- 圆形 -->
       <div class="box">
-      <loading-progress :progress="progress" :indeterminate="indeterminate"
-        :counter-clockwise="counterClockwise" :hide-background="hideBackground"
-        size="27" rotate fillDuration="2" rotationDuration="1" />
+        <loading-progress :progress="progress" :indeterminate="indeterminate"
+          :counter-clockwise="counterClockwise"
+          :hide-background="hideBackground" size="27" rotate fillDuration="2"
+          rotationDuration="1" />
       </div>
     </div>
     <div class="grogress2 ss1">
       <!-- 圆形 -->
       <div class="box">
-      <loading-progress :progress="progress" :indeterminate="indeterminate"
-        :counter-clockwise="counterClockwise" :hide-background="hideBackground"
-        size="27" rotate fillDuration="2" rotationDuration="1" />
+        <loading-progress :progress="progress" :indeterminate="indeterminate"
+          :counter-clockwise="counterClockwise"
+          :hide-background="hideBackground" size="27" rotate fillDuration="2"
+          rotationDuration="1" />
       </div>
     </div>
     <div class="grogress2 ss2">
       <!-- 圆形 -->
       <div class="box">
-      <loading-progress :progress="progress" :indeterminate="indeterminate"
-        :counter-clockwise="counterClockwise" :hide-background="hideBackground"
-        size="27" rotate fillDuration="2" rotationDuration="1" />
+        <loading-progress :progress="progress" :indeterminate="indeterminate"
+          :counter-clockwise="counterClockwise"
+          :hide-background="hideBackground" size="27" rotate fillDuration="2"
+          rotationDuration="1" />
       </div>
     </div>
     <div class="grogress2 ss3">
       <!-- 圆形 -->
       <div class="box">
-      <loading-progress :progress="progress" :indeterminate="indeterminate"
-        :counter-clockwise="counterClockwise" :hide-background="hideBackground"
-        size="27" rotate fillDuration="2" rotationDuration="1" />
+        <loading-progress :progress="progress" :indeterminate="indeterminate"
+          :counter-clockwise="counterClockwise"
+          :hide-background="hideBackground" size="27" rotate fillDuration="2"
+          rotationDuration="1" />
       </div>
     </div>
     <div class="grogress2 ss4">
       <!-- 圆形 -->
       <div class="box">
-      <loading-progress :progress="progress" :indeterminate="indeterminate"
-        :counter-clockwise="counterClockwise" :hide-background="hideBackground"
-        size="27" rotate fillDuration="2" rotationDuration="1" />
+        <loading-progress :progress="progress" :indeterminate="indeterminate"
+          :counter-clockwise="counterClockwise"
+          :hide-background="hideBackground" size="27" rotate fillDuration="2"
+          rotationDuration="1" />
       </div>
     </div>
     <div class="grogress2 ss5">
       <!-- 圆形 -->
       <div class="box">
-      <loading-progress :progress="progress" :indeterminate="indeterminate"
-        :counter-clockwise="counterClockwise" :hide-background="hideBackground"
-        size="27" rotate fillDuration="2" rotationDuration="1" />
+        <loading-progress :progress="progress" :indeterminate="indeterminate"
+          :counter-clockwise="counterClockwise"
+          :hide-background="hideBackground" size="27" rotate fillDuration="2"
+          rotationDuration="1" />
       </div>
     </div>
     <div class="grogress2 ss6">
       <!-- 圆形 -->
       <div class="box">
-      <loading-progress :progress="progress" :indeterminate="indeterminate"
-        :counter-clockwise="counterClockwise" :hide-background="hideBackground"
-        size="27" rotate fillDuration="2" rotationDuration="1" />
+        <loading-progress :progress="progress" :indeterminate="indeterminate"
+          :counter-clockwise="counterClockwise"
+          :hide-background="hideBackground" size="27" rotate fillDuration="2"
+          rotationDuration="1" />
       </div>
     </div>
     <div class="grogress2 ss7">
       <!-- 圆形 -->
       <div class="box">
-      <loading-progress :progress="progress" :indeterminate="indeterminate"
-        :counter-clockwise="counterClockwise" :hide-background="hideBackground"
-        size="27" rotate fillDuration="2" rotationDuration="1" />
+        <loading-progress :progress="progress" :indeterminate="indeterminate"
+          :counter-clockwise="counterClockwise"
+          :hide-background="hideBackground" size="27" rotate fillDuration="2"
+          rotationDuration="1" />
       </div>
     </div>
   </div>
@@ -95,7 +102,7 @@
 <script>
 import 'vue-progress-path/dist/vue-progress-path.css'
 export default {
-  data () {
+  data() {
     return {
       progress: 0.5, // 进度
       leftProgress: 0.5, // 进度
@@ -151,9 +158,9 @@ export default {
     width: 0.8rem;
     height: 0.8rem;
     background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   svg {
     z-index: 3;
@@ -174,31 +181,31 @@ export default {
     stroke: #99270c;
   }
 }
-.ss1{
+.ss1 {
   top: 90px;
   left: 37%;
 }
-.ss2{
+.ss2 {
   top: 147px;
   left: 18%;
 }
-.ss3{
+.ss3 {
   top: 147px;
   left: 57%;
 }
-.ss4{
+.ss4 {
   top: 256px;
   left: 45%;
 }
-.ss5{
+.ss5 {
   top: 223px;
   left: 18%;
 }
-.ss6{
+.ss6 {
   top: 218px;
   left: 69%;
 }
-.ss7{
+.ss7 {
   top: 88px;
   left: 70%;
 }

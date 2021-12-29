@@ -15,9 +15,7 @@
       <div
         class="fixedbtn"
       >
-        <!-- <div class="t1">{{ voteText }}</div> -->
         <div class="t2">已收到1个赞</div>
-        <!-- <span class="trans" v-show="1">+1</span> -->
       </div>
     </div>
   </div>
