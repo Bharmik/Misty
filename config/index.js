@@ -6,9 +6,10 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://127.0.0.1:3000/',  //需要代理的地址  
+        target: 'http://121.89.245.28:8081/',  //需要代理的地址  
+        // target: 'http://127.0.0.1:3000/',  //需要代理的地址  
         changeOrigin: true,  //是否跨域  
-        secure: false,    
+        secure: false,
         pathRewrite: {  
           '^/api': '/'
         }
@@ -16,8 +17,9 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: '192.168.5.242', // can be overwritten by process.env.HOST
+    host: 'localhost', // can be overwritten by process.env.HOST
     // host: '192.168.1.35', // can be overwritten by process.env.HOST
+    // host: '121.89.245.28', // can be overwritten by process.env.HOST
     port: 8096, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
@@ -78,3 +80,32 @@ module.exports = {
     bundleAnalyzerReport: process.env.npm_config_report
   }
 }
+
+
+
+
+
+
+
+
+// apps:
+//   - script: ./start.js
+//     name: 'app'
+//     env:
+//       COMMON_VARIABLE: true
+//     env_production:
+//       NODE_ENV: production
+
+// deploy:
+//   production:
+//     user: lentoo
+//     host: 192.168.2.166
+//     port: 22
+//     ref: origin/master
+//     ssh_options: StrictHostKeyChecking=no
+//     repo: https://github.com/**.git
+//     path: /home
+//     pre-deploy: git fetch --all
+//     post-deploy: npm install &&  pm2 reload deploy.yaml --env production
+//     env:
+//       NODE_ENV: production
