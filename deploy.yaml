@@ -9,7 +9,7 @@ apps:
 
 deploy:                     # 部署脚本
   production:               # 生产环境
-    user: bharmik            # 服务器的用户名
+    user: Root            # 服务器的用户名
     host: 121.89.245.28     # 服务器的ip地址
     port: 22                # ssh端口
     ref: origin/master      # 要拉取的git分支
