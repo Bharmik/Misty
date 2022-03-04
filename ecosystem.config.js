@@ -32,7 +32,7 @@ module.exports = {
         ref: 'origin/master',             //Git远程/分支
         repo: 'git@github.com:Bharmik/Misty.git',         //git地址使用ssh地址
         ssh_options: 'StrictHostKeyChecking=no',
-        path: '/home/misty',       //项目存放服务器文件路径
+        path: '/home/mistyy',       //项目存放服务器文件路径
         "post-deploy": 'npm install && pm2 reload ecosystem.config.js --env production'  //部署后的动作
       }
   }
