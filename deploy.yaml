@@ -8,14 +8,17 @@ apps:
       NODE_ENV: production
 
 deploy:                     # 部署脚本
+  production: 
+    // SSH key path, default to $HOME/.ssh
+    key: '/home/Misty_rsa',
   production:               # 生产环境
     user: root            # 服务器的用户名
     host: 121.89.245.28     # 服务器的ip地址
     port: 22                # ssh端口
     ref: origin/master      # 要拉取的git分支
     ssh_options: StrictHostKeyChecking=no # SSH 公钥检查
-    # repo: git@github.com:Bharmik/Misty.git # 远程仓库地址
-    repo: https://github.com/Bharmik/Misty.git # 远程仓库地址
+    repo: git@github.com:Bharmik/Misty.git # 远程仓库地址
+    # repo: https://github.com/Bharmik/Misty.git # 远程仓库地址
     path: /home/misty # 拉取到服务器某个目录下
     pre-deploy: git fetch --all # 部署前执行
     post-deploy: npm install &&  pm2 reload deploy.yaml --env production # 部署后执行
