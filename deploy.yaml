@@ -8,9 +8,8 @@ apps:
       NODE_ENV: production
 
 deploy:                     # 部署脚本
-  production: 
-    // SSH key path, default to $HOME/.ssh
-    key: '/home/Misty_rsa',
+  production:
+    key: '/home/Misty_rsa'
   production:               # 生产环境
     user: root            # 服务器的用户名
     host: 121.89.245.28     # 服务器的ip地址
