@@ -1,6 +1,6 @@
 # upload-avatar
 
-> A Vue.js project
+> A Vue.js testDemo
 
 ## Build Setup
 
