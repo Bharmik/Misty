@@ -8,8 +8,8 @@ export default new Router({
       path: '/',
       name: 'index',
       component (resolve) {
-        require.ensure(['../view/index.vue'], () => {
-          resolve(require('../view/index.vue'))
+        require.ensure(['../view/home.vue'], () => {
+          resolve(require('../view/home.vue'))
         })
       }
     },
@@ -73,10 +73,9 @@ export default new Router({
     {
       path: '/*',
       name: 'index',
-      // component: index
       component (resolve) {
-        require.ensure(['../view/index.vue'], () => {
-          resolve(require('../view/index.vue'))
+        require.ensure(['../view/home.vue'], () => {
+          resolve(require('../view/home.vue'))
         })
       }
     }
