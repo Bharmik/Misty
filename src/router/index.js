@@ -61,6 +61,16 @@ export default new Router({
       }
     },
     {
+      path: '/Test3',
+      name: 'Test3',
+      // component: Progress
+      component (resolve) {
+        require.ensure(['../view/test/test3.vue'], () => {
+          resolve(require('../view/test/test3.vue'))
+        })
+      }
+    },
+    {
       path: '/*',
       name: 'Index',
       // component: Index
