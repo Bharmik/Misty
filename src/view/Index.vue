@@ -22,7 +22,6 @@ export default {
     }
   },
   mounted () {
-    // this.$store.dispatch('GET_INDEXLIST', this.$router.options.routes)
   },
   methods: {
     ...mapActions(['GET_INDEXLIST']),
